@@ -1,0 +1,68 @@
+<ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>Sign up">
+  <ion-content class="register_page padding">
+      <div class="profile_img">
+         <img src="img/def.png" class="gray_bg"/>
+         <p class="browse"><i class="ion-folder"></i>Browse</p>
+      </div>
+      <div class="gray_bg">
+        <div class="list">
+          <div class="form_input">
+              <span>First Name</span>
+              <label class="item item-input" ng-click="colorBorder(1)" ng-class="{'active_label animated flash':border_color==1}">
+                <input type="text">
+              </label>
+          </div>
+          <div class="form_input">
+              <span>Last Name</span>
+              <label class="item item-input" ng-click="colorBorder(2)" ng-class="{'active_label animated flash':border_color==2}">
+                <input type="text">
+              </label>
+          </div>
+          <div class="form_input">
+              <span>Country</span>
+              <label class="item item-input item-select" ng-click="colorBorder(3)" ng-class="{'active_label animated flash':border_color==3}">
+                  <select>
+                  <option>United Kingdom</option>
+                  <option>Red</option>
+                  </select>
+              </label>
+          </div>  
+          <div class="form_input">  
+              <span>Last Name</span>
+              <label class="item item-input" ng-click="colorBorder(4)" ng-class="{'active_label animated flash':border_color==4}">
+                <input type="text">
+              </label>
+          </div>
+          <div class="form_input">  
+              <span>E-mail</span>
+              <label class="item item-input" ng-click="colorBorder(5)" ng-class="{'active_label animated flash':border_color==5}">
+                <input type="email">
+              </label>
+          </div>
+          <div class="form_input">  
+              <span>Confirm E-mail</span>
+              <label class="item item-input" ng-click="colorBorder(6)" ng-class="{'active_label animated flash':border_color==6}">
+                <input type="email">
+              </label>
+          </div>    
+          <div class="form_input">  
+              <span>Password</span>
+              <label class="item item-input" ng-click="colorBorder(7)" ng-class="{'active_label animated flash':border_color==7}">
+              <input type="password">
+              </label>
+          </div>  
+          <div class="form_input">    
+                <span>Confirm Password</span>
+                <label class="item item-input" ng-click="colorBorder(8)" ng-class="{'active_label animated flash':border_color==8}">
+                  <input type="password">
+                </label>
+          </div>      
+        </div>
+      </div>
+
+      <a href="#/app/list" class="button button-block main_btn  main_bg_btn">
+         Submit
+      </a>
+
+  </ion-content>
+</ion-view>

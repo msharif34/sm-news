@@ -1,0 +1,17 @@
+<ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>Settings">
+  <ion-content class="setting padding">
+        <p class="note">
+        Choose News fields to get Notifcation about. </br> 
+        <b>Note: </b>You have to be registered.              
+        </p>
+        <a href="#/app/register" class="main_color sign_uplink">
+        Register Now
+        </a>
+
+        <div class="setting_list gray_bg">
+            <ion-toggle class="toggle_style" ng-repeat="item in setting" ng-model="item.checked">
+               <i class="{{item.icon}}"></i>{{item.title}}
+            </ion-toggle> 
+        </div>
+  </ion-content>
+</ion-view>

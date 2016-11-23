@@ -1,0 +1,46 @@
+<ion-content class="main_bg">
+  <div class="logo">
+    <div class="logo_img">
+        <img src="img/logo.png"/>
+    <div class="hours"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div> 
+    </div>
+    <div class="logo_text">at the event now</div> 
+  </div>
+    
+  <form class="padding app_form">
+    <h3>Please sign in</h3>
+    <div class="list list-inset">
+      <label class="item item-input" ng-click="colorBorder(9)" ng-class="{'active_label animated flash':border_color==9}">
+        <i class="icon ion-android-person"></i>
+        <input type="text" placeholder="Username">
+      </label>
+       <label class="item item-input" ng-click="colorBorder(10)" ng-class="{'active_label animated flash':border_color==10}">
+        <i class="icon ion-android-unlock"></i>
+        <input type="password" placeholder="password">
+      </label>
+   </div>
+   
+    <a href="#/app/list" class="button button-block main_btn main_bg_btn">
+       Login
+    </a>
+    <a href="#/app/register" class="button button-block main_btn sec_bg">
+       Register
+    </a>
+      
+    <div class="row skip_forpsw">
+        <div class="col col-50" ng-click="forget_password()">
+            <button class="button button-clear">
+            Forget Password?
+            </button>
+        </div>
+        <div class="col col-50">
+            <a href="#/app/list" class="button button-clear">
+            <span>|</span>Skip
+            </a>
+        </div>
+    </div>
+  </form>
+</ion-content>
+

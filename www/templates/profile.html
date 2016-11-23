@@ -1,0 +1,54 @@
+<ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>">
+  <ion-content>
+       <div class="profile_head main_bg_color">
+            <img src="img/def.png" class="gray_bg"/>
+            <p class="sec_color">Carlos Shorter</p>
+            <div class="row comment_reply">
+               <div class="col col-50">
+                 <p><span class="main_color">30</span>Comment</p>
+               </div>
+                <div class="col col-50 num_reply">
+                 <p><span class="main_color">120</span>Reply</p>
+               </div>
+            </div>
+       </div>
+       <div class="padding">
+         <div class="edit_profile">
+              <span class="sec_color">Country :</span>
+              <p ng-if="show_input!=1">United Kingdom</p>  
+              <label ng-if="show_input==1" class="item item-input"  ng-click="colorBorder(6)" ng-class="{'active_label':border_color==6}">
+                <input type="text" value="United Kingdom">
+              </label>
+          </div>
+           <div class="edit_profile">
+              <span  class="sec_color">E-mail :</span>
+              <p ng-if="show_input!=1">Carlos.Shorter@gmail.com</p>  
+              <label ng-if="show_input==1" class="item item-input"  ng-click="colorBorder(7)" ng-class="{'active_label':border_color==7}">
+                <input type="email"  value="Carlos.Shorter@gmail.com">
+              </label>
+          </div>
+           <div class="edit_profile">
+              <span class="sec_color">Interested In :</span>
+              <p ng-if="show_input!=1">Business</p>  
+              <label ng-if="show_input==1" class="item item-input"  ng-click="colorBorder(8)" ng-class="{'active_label':border_color==8}">
+                <input type="text" value="Business">
+              </label>
+          </div>
+        </div>  
+         <div class="row profile_btn">
+               <div class="col col-50">
+                  <a href="#" class="button button-block main_btn main_bg_btn" ng-click="editProfile(1)" ng-if="show_input!=1">
+                    <i class="ion-edit"></i>Edit Profile
+                  </a>
+                  <a href="#" class="button button-block main_btn main_bg_btn" ng-click="editProfile(2)" ng-if="show_input==1">
+                    <i class="ion-android-done"></i>Save
+                  </a>
+               </div>
+                <div class="col col-50">
+                  <a href="#/app/setting" class="button button-block main_btn sec_bg">
+                     <i class="ion-gear-a"></i>Edit Settings
+                  </a>
+               </div>
+            </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>LATEST NEWS">
+  <ion-content class="main_page">
+  
+  <ion-slide-box class="img_slider" does-continue="true" auto-play="true">
+          <ion-slide style="background:url(img/001.png)no-repeat">
+                <div class="det_head">
+                    <h3>American Airlines: Submarine searches for missing flight data recorders</h3>
+                    <p><span class="main_color"><i class="ion-clock"></i>3 mins ago</span>|<span class="sec_color">Political</span></p>
+                </div>
+          </ion-slide>
+      
+          <ion-slide style="background:url(img/005.jpg)no-repeat">
+                <div class="det_head">
+                    <h3>
+                        SOS Children's Villages is an independent, non-governmental international 
+                        development organization which has been working to meet the needs and protect 
+                    </h3>
+                    <p><span class="main_color"><i class="ion-clock"></i>45 mins ago</span>|<span class="sec_color">Political</span></p>
+                </div>
+          </ion-slide>
+      
+          <ion-slide style="background:url(img/006.png)no-repeat">
+                <div class="det_head">
+                    <h3>The United States men's and women's basketball teams once again emerged victorious at the Olympics</h3>
+                    <p><span class="main_color"><i class="ion-clock"></i>2 hours ago</span>|<span class="sec_color">Sport</span></p>
+                </div>
+          </ion-slide>
+    </ion-slide-box>
+      
+      <div class="main_list">
+        <a href="#/app/detail"
+           collection-repeat="item in data"
+           collection-item-width="'50%'"
+           collection-item-height="180"
+           ng-style="{'height':'180px','width':'50%'}"> 
+          
+          
+           <div class="list_item animated slideInLeft" style="background:url({{item.image}})no-repeat; background-size:cover" ng-click="getImg(item.img)">
+                <div class="det_head">
+                    <h3>{{item.title}}</h3>  
+                    <p><span class="main_color">{{item.time}}</span>|<span class="sec_color">{{item.source}}</span></p>
+                </div>
+           </div>
+        </a>
+      </div>
+  </ion-content>
+
+</ion-view>
