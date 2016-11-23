@@ -5,11 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
-/* //if use wakanda platform 
+/* //if use wakanda platform
     angular.module('starter', ['ionic', 'starter.controllers','wakanda'])
 */
 .run(function($ionicPlatform,$rootScope,$ionicPopup,$location) {
-    
+
 $rootScope.home=[{id:"1",img:"img/002.png",title:"Why Nigeria was quick to trumpet the Chibok rescue",cat:"Political"}
                  ,{id:"2",img:"img/003.png",title:"JoseMourinho :Man Utd to name  Mourinho as  manager",cat:"sport"},
                  {id:"3",img:"img/004.png",title:"Help needy poor children",cat:"Political"},{id:"4",img:"img/005.jpg",title:"We Help Support African Children",cat:"Political"},{id:"5",img:"img/003.png",title:"JoseMourinho :Man Utd to name  Mourinho as  manager",cat:"sport"},{id:"6",img:"img/004.png",title:"Help needy poor children",cat:"Political"}]
@@ -24,13 +24,13 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
         else if (index==2){
             $rootScope.active_like2=!$rootScope.active_like2
         }
-    } 
-  
-    $rootScope.detail_img="img/001.png"    
+    }
+
+    $rootScope.detail_img="img/001.png"
     $rootScope.getImg=function(img){
       $rootScope.detail_img=img
     }
-    
+
     $rootScope.border_color=1
     $rootScope.colorBorder=function(index){
       $rootScope.border_color=index
@@ -38,8 +38,8 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
 
     $rootScope.editProfile=function(index){
       $rootScope.show_input=index
-    } 
-    
+    }
+
     $rootScope.activeItem=function(index){
         $rootScope.active_item=index
     }
@@ -47,7 +47,7 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
         $location.path(url)
     }
 
-     $rootScope.forget_password=function (){  
+     $rootScope.forget_password=function (){
         $ionicPopup.show({
         template: 'Enter your email address below.<label class="item item-input"><input  type="email"  /></label>',
         title: 'Forget Password',
@@ -58,9 +58,9 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
         type: 'button-positive main_bg_btn'},
         { text: 'Cancel' ,
         type: 'button-positive sec_bg'},]
-        }); 
+        });
     };
-    
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -79,13 +79,15 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
     $ionicConfigProvider.navBar.alignTitle('center');
     $stateProvider
 
+
+
   .state('app', {
     url: "/app",
     abstract: true,
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-  
+
   .state('login', {
     url: "/login",
         templateUrl: "templates/login.html"
