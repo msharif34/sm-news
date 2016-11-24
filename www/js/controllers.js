@@ -1,22 +1,23 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Api, $state) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
-    $http.get("http://localhost:3000/news")
-    .then(function(response) {
-      $scope.data = response.data;
-    }, function (err) {
-      console.log('error ' + JSON.stringify(err))
-    });
-  
   // Form data for the login modal
   $scope.loginData = {};
+
+  $scope.goNext = function (link, source) {
+    // console.log(link, source)
+    $scope.openBrowser = function(link){
+      console.log(JSON.stringify(link));
+      window.open(link, "_blank", "location=no"); return false;
+    }
+    $scope.openBrowser(link)
+  }
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -47,17 +48,27 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('MainCtrl', function($scope, Api, $ionicLoading, $state) {
+  $ionicLoading.show({
+    template: "...loading"
+  })
+
+  // $scope.test = function (info) {
+  //   $state.go("app.detail")
+  //   console.log(info)
+  // }
+
+  Api.getApiData()
+  .then(function(result) {
+    $scope.data = result;
+    $ionicLoading.hide();
+  })
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('detailsCtrl', function($scope, $stateParams, $http, Api) {
+  // console.log("params: " + JSON.stringify($stateParams))
+  Api.getApiDetails()
+  .then(function(result) {
+    $scope.data = result;
+  })
 });
-

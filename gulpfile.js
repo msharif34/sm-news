@@ -37,6 +37,26 @@ gulp.task('install', ['git-check'], function() {
     });
 });
 
+gulp.task('add-proxy', function() {
+  return replace({
+    regex: "http://localhost:3000",
+    replacement: "http://localhost:8100/api",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('remove-proxy', function() {
+  return replace({
+    regex: "http://localhost:8100/api",
+    replacement: "http://localhost:3000",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
 gulp.task('git-check', function(done) {
   if (!sh.which('git')) {
     console.log(

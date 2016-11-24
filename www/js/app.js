@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 /* //if use wakanda platform
     angular.module('starter', ['ionic', 'starter.controllers','wakanda'])
 */
@@ -28,7 +28,7 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
 
     $rootScope.detail_img="img/001.png"
     $rootScope.getImg=function(img){
-      $rootScope.detail_img=img
+      $rootScope.detail_img = img
     }
 
     $rootScope.border_color=1
@@ -72,6 +72,10 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
       StatusBar.styleDefault();
     }
   });
+})
+
+.constant('ApiEndpoint', {
+  url: 'http://localhost:8100/api'
 })
 
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
@@ -123,16 +127,17 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
     views: {
       'menuContent': {
         templateUrl: "templates/list.html",
-        controller: "AppCtrl"
+        controller: "MainCtrl"
       }
     }
   })
 
   .state('app.detail', {
-    url: "/detail",
+    url: "/detail/:link",
     views: {
       'menuContent': {
-        templateUrl: "templates/detail.html"
+        templateUrl: "templates/detail.html",
+        controller: "detailsCtrl"
       }
     }
   })
@@ -153,5 +158,5 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/app/list');
 });
