@@ -64,6 +64,7 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    navigator.splashscreen.hide()
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -71,6 +72,35 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    //======admob code start=============
+ 
+      var admobid = {};
+        // select the right Ad Id according to platform
+        if( /(android)/i.test(navigator.userAgent) ) { 
+            admobid = { // for Android
+                banner: 'ca-app-pub-8783538592603016/8472934286'
+            };
+        } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+            admobid = { // for iOS
+                banner: 'ca-app-pub-8783538592603016/8472934286'
+            };
+        } else {
+            admobid = { // for Windows Phone
+                banner: 'ca-app-pub-8783538592603016/8472934286'
+            };
+        }
+ 
+  if(window.AdMob){
+    AdMob.createBanner({
+      adId:admobid.banner, 
+      position:AdMob.AD_POSITION.BOTTOM_CENTER, 
+      autoShow:true
+    })
+      console.log(JSON.stringify(window.AdMob))
+  };
+ 
+//=======AdMob Code End=======
   });
 })
 
@@ -82,8 +112,6 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
     $ionicConfigProvider.backButton.text('').previousTitleText('')  ;
     $ionicConfigProvider.navBar.alignTitle('center');
     $stateProvider
-
-
 
   .state('app', {
     url: "/app",

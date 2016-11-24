@@ -3,9 +3,16 @@ angular.module('starter.services', [])
   var getApiData = function() {
     var q = $q.defer();
 
-    $http.get(ApiEndpoint.url + '/news')
-    .success(function(data) {
-      console.log('Got some data: ')
+
+    $http({
+         method: 'GET',
+         // windows 
+         // url: ApiEndpoint.url + '/news',
+         //Mac
+         url: 'http://localhost:3000' + '/news',
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+     }).success(function(data) {
+      console.log('Got some data: ');
       q.resolve(data);
     })
     .error(function(error){

@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   $scope.goNext = function (link, source) {
-    // console.log(link, source)
+    console.log(link, source)
     $scope.openBrowser = function(link){
       console.log(JSON.stringify(link));
       window.open(link, "_blank", "location=no"); return false;
@@ -53,16 +53,11 @@ angular.module('starter.controllers', [])
     template: "...loading"
   })
 
-  // $scope.test = function (info) {
-  //   $state.go("app.detail")
-  //   console.log(info)
-  // }
-
   Api.getApiData()
   .then(function(result) {
     $scope.data = result;
     $ionicLoading.hide();
-  })
+  });
 })
 
 .controller('detailsCtrl', function($scope, $stateParams, $http, Api) {
