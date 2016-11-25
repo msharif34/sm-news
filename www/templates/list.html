@@ -2,27 +2,10 @@
   <ion-content class="main_page">
 
   <ion-slide-box class="img_slider" does-continue="true" auto-play="true">
-          <ion-slide style="background:url(img/001.png)no-repeat">
+        <ion-slide ng-repeat="image in images track by $index" style="background:url({{image}})no-repeat" >
                 <div class="det_head">
                     <h3>American Airlines: Submarine searches for missing flight data recorders</h3>
                     <p><span class="main_color"><i class="ion-clock"></i>3 mins ago</span>|<span class="sec_color">Political</span></p>
-                </div>
-          </ion-slide>
-
-          <ion-slide style="background:url(img/005.jpg)no-repeat">
-                <div class="det_head">
-                    <h3>
-                        SOS Children's Villages is an independent, non-governmental international
-                        development organization which has been working to meet the needs and protect
-                    </h3>
-                    <p><span class="main_color"><i class="ion-clock"></i>45 mins ago</span>|<span class="sec_color">Political</span></p>
-                </div>
-          </ion-slide>
-
-          <ion-slide style="background:url(img/006.png)no-repeat">
-                <div class="det_head">
-                    <h3>The United States men's and women's basketball teams once again emerged victorious at the Olympics</h3>
-                    <p><span class="main_color"><i class="ion-clock"></i>2 hours ago</span>|<span class="sec_color">Sport</span></p>
                 </div>
           </ion-slide>
     </ion-slide-box>

@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MainCtrl', function($scope, Api, $ionicLoading, $state) {
+.controller('MainCtrl', function($scope, Api, $ionicLoading, $state, $ionicSlideBoxDelegate) {
   $ionicLoading.show({
     template: "...loading"
   })
@@ -57,6 +57,14 @@ angular.module('starter.controllers', [])
   .then(function(result) {
     $scope.data = result;
     $ionicLoading.hide();
+
+    $scope.images = ['https://static01.nyt.com/images/2011/06/14/world/SOMALIA/SOMALIA-jumbo.jpg', 'https://static01.nyt.com/images/2011/06/14/world/SOMALIA/SOMALIA-jumbo.jpg']
+          setTimeout(function() {
+                $ionicSlideBoxDelegate.slide(0);
+                $ionicSlideBoxDelegate.update();
+                $scope.$apply();
+            });
+    console.log($scope.images)
   });
 })
 
