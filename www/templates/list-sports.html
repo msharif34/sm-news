@@ -1,8 +1,8 @@
-<ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>LATEST NEWS">
+<ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>LATEST SPORTS">
   <ion-content class="main_page">
     <ion-refresher
         pulling-text="Pull to refresh..."
-        on-refresh="doRefresh('app.list')">
+        on-refresh="doRefresh('app.list_sports')">
     </ion-refresher>
     <ion-slide-box class="img_slider" does-continue="true" auto-play="true">
           <ion-slide ng-repeat="item in featured track by $index" style="background:url({{item.image}})no-repeat" >
@@ -14,13 +14,15 @@
       </ion-slide-box>
 
       <div class="main_list">
-        <a collection-repeat="item in data"
+        <a
+           collection-repeat="item in data"
            collection-item-width="'50%'"
            collection-item-height="180"
            ng-style="{'height':'180px','width':'50%'}">
 
+
            <div class="list_item animated slideInLeft"
-           style="background:url({{item.image}})no-repeat; background-size:cover" ng-click="openBrowser(item.link, item.source)">
+           style="background:url({{item.image}})no-repeat; background-size:cover" ng-click="goNext(item.link, item.source)">
                 <div class="det_head">
                     <h3>{{item.title}}</h3>
                     <p><span class="main_color">{{item.time}}</span>|<span class="sec_color">{{item.source}}</span></p>

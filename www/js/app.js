@@ -74,10 +74,10 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
     }
 
     //======admob code start=============
- 
+
       var admobid = {};
         // select the right Ad Id according to platform
-        if( /(android)/i.test(navigator.userAgent) ) { 
+        if( /(android)/i.test(navigator.userAgent) ) {
             admobid = { // for Android
                 banner: 'ca-app-pub-8783538592603016/8472934286'
             };
@@ -90,16 +90,16 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
                 banner: 'ca-app-pub-8783538592603016/8472934286'
             };
         }
- 
+
   if(window.AdMob){
     AdMob.createBanner({
-      adId:admobid.banner, 
-      position:AdMob.AD_POSITION.BOTTOM_CENTER, 
+      adId:admobid.banner,
+      position:AdMob.AD_POSITION.BOTTOM_CENTER,
       autoShow:true
     })
       console.log(JSON.stringify(window.AdMob))
   };
- 
+
 //=======AdMob Code End=======
   });
 })
@@ -156,6 +156,16 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
       'menuContent': {
         templateUrl: "templates/list.html",
         controller: "MainCtrl"
+      }
+    }
+  })
+
+  .state('app.list_sports', {
+    url: "/list/sports",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/list-sports.html",
+        controller: "SportsCtrl"
       }
     }
   })

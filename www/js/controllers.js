@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Api, $state) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Api, $state, $ionicLoading) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -8,16 +8,48 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   // Form data for the login modal
+  $ionicLoading.show({
+    // template: "'<ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'"
+    template: '<ion-spinner icon="lines" class="spinner-calm"></ion-spinner>',
+    noBackdrop: true
+  });
   $scope.loginData = {};
 
-  $scope.goNext = function (link, source) {
-    console.log(link, source)
-    $scope.openBrowser = function(link){
-      console.log(JSON.stringify(link));
-      window.open(link, "_blank", "location=no"); return false;
-    }
-    $scope.openBrowser(link)
-  }
+
+  $scope.openBrowser = function(link){
+    window.open(link, "_blank", "location=no"); return false;
+  };
+
+  $scope.goToPage = function (page) {
+    $state.go(page);
+  };
+
+  $scope.doRefresh = function(state) {
+    if(state === 'app.list'){
+      Api.getApiData()
+      .then(function(result) {
+        $scope.featured = result.splice(0, 3);
+        $scope.data = result;
+      })
+      .finally(function() {
+       // Stop the ion-refresher from spinning
+       console.log('refresh successful');
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+   }else if (state === 'app.list_sports') {
+     Api.getApiSports()
+     .then(function(result) {
+       $scope.featured = result.data.splice(0, 3);
+       $scope.data = result.data;
+     })
+     .finally(function() {
+      // Stop the ion-refresher from spinning
+      console.log('refresh successful');
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+   }
+  };
+
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -49,29 +81,18 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MainCtrl', function($scope, Api, $ionicLoading, $state, $ionicSlideBoxDelegate) {
-  $ionicLoading.show({
-    template: "...loading"
-  })
-
   Api.getApiData()
   .then(function(result) {
+    $scope.featured = result.splice(0, 3);
     $scope.data = result;
-    $ionicLoading.hide();
-
-    $scope.images = ['https://static01.nyt.com/images/2011/06/14/world/SOMALIA/SOMALIA-jumbo.jpg', 'https://static01.nyt.com/images/2011/06/14/world/SOMALIA/SOMALIA-jumbo.jpg']
-          setTimeout(function() {
-                $ionicSlideBoxDelegate.slide(0);
-                $ionicSlideBoxDelegate.update();
-                $scope.$apply();
-            });
-    console.log($scope.images)
   });
 })
 
-.controller('detailsCtrl', function($scope, $stateParams, $http, Api) {
+.controller('SportsCtrl', function($scope, $stateParams, $http, Api, $ionicSlideBoxDelegate) {
   // console.log("params: " + JSON.stringify($stateParams))
-  Api.getApiDetails()
+  Api.getApiSports()
   .then(function(result) {
-    $scope.data = result;
-  })
+    $scope.featured = result.data.splice(0, 3);
+    $scope.data = result.data;
+  });
 });

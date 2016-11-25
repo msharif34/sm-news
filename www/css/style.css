@@ -4,7 +4,7 @@
 }
 .main_bg{
     background: url(../img/bg.png)no-repeat;
-    background-size:100% 100% 
+    background-size:100% 100%
 }
 .main_bg_color{
     background: #101f2e !important
@@ -90,7 +90,7 @@ h3{
     -ms-animation: rotate 60s infinite steps(60);
     -webkit-animation:rotate 60s infinite steps(60);
     -moz-animation: rotate 60s infinite steps(60);
-    
+
     -ms-transform-origin: 50% 80%; /* IE 9 */
     -webkit-transform-origin: 50% 80%; /* Chrome, Safari, Opera */
     transform-origin: 50% 80%;
@@ -238,14 +238,14 @@ h3{
     margin: 0;
     border-radius: 0;
     background: none
-}	
+}
 .app_form .list-inset .item{
     padding: 5px 10px;
     border-radius: 0;
     border-color:#fff;
     margin-bottom: 10px;
     height: 42px;
-}	
+}
 .app_form .item-input .icon{
 	color:#101f2e;
 	margin-right:8px;
@@ -262,7 +262,7 @@ h3{
     line-height: 42px;
     height: 42px;
     min-height: 42px;
-}	
+}
 .app_form .button.button-block.sec_bg{
     margin-top: 10px;
 }
@@ -275,7 +275,7 @@ h3{
     height: 43px;
     min-height: 43px;
     line-height: 45px;
-}	
+}
 .skip_forpsw.row{
 	padding:0;
     margin-top: 10px;
@@ -287,8 +287,8 @@ h3{
 	float: left;
 	line-height: 45px;
 	color:#fff
-}			
-/*popup-forgetpassword*/	
+}
+/*popup-forgetpassword*/
 .popup-head {
     padding: 10px;
     border:none;
@@ -310,7 +310,7 @@ h3{
 }
 .popup-buttons{
     min-height:57px;
-}	
+}
 .popup-buttons .button.button-positive:last-child{
 	font-size: 14px;
 }
@@ -409,7 +409,7 @@ h3{
     padding-right: 5px;
 }
 .det_head p>span{
-    padding:0 5px 
+    padding:0 5px
 }
 .slider-pager {
     text-align: left;
@@ -511,7 +511,7 @@ h3{
 }
 .det_parag{
     margin-bottom: 20px;
-}	
+}
 .comments_div .row{
 	padding:0;
     background: #f7f7f7;
@@ -614,7 +614,7 @@ h3{
     width: 50px;
     height: 26px;
     border-radius: 3px;
-    background-color: #d1cfcf; 
+    background-color: #d1cfcf;
     box-shadow: none;
     top: 3px;
     left: 2px
@@ -626,7 +626,7 @@ h3{
     right: -35px;
     color: #d1cfcf;
     font-size: 14px;
-} 
+}
 .toggle_style .toggle input:checked + .track .handle:after{
     content: 'ON';
     position: absolute;
@@ -647,7 +647,7 @@ h3{
     background: #fff
 }
 
-/*register*/        
+/*register*/
 .profile_img{
     width: 100px;
     margin: 28px auto;
@@ -875,7 +875,7 @@ h3{
     font-size: 20px;
 }
 .menu .scroll-content{
-    top: 170px;
+    /*top: 170px;*/
     padding-top: 25px;
 }
 .menu_list .item{
@@ -896,7 +896,7 @@ h3{
     left:6px;
 }
 .menu_app .menu_list .item{
-    width: 33.3333%;
+    /*width: 33.3333%;*/
     margin-bottom: 25px;
 }
 .menu_app .menu_list .item-complex .item-content{
