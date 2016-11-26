@@ -29,7 +29,6 @@ angular.module('starter.services', [])
       console.log('Had an error: ' + JSON.stringify(error))
       q.reject(error);
     })
-
     return q.promise;
   };
 
@@ -61,9 +60,7 @@ angular.module('starter.services', [])
       console.log('Had an error: ' + JSON.stringify(error))
       q.reject(error);
     })
-
     return q.promise;
-
   };
 
   return {
