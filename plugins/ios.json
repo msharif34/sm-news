@@ -7,28 +7,28 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.ionicframework.somalinews729045"
+        },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.somalinews729045"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.starter"
+            "PACKAGE_NAME": "com.ionicframework.somalinews729045"
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.somalinews729045"
         },
-        "cordova-plugin-admobpro": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.somalinews729045"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.somalinews729045"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.somalinews729045"
+        },
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.somalinews729045"
         }
     },
