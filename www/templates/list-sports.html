@@ -8,7 +8,7 @@
           <ion-slide ng-repeat="item in featured track by $index" style="background:url({{item.image}})no-repeat" >
                   <div class="det_head">
                       <h3>{{item.title}}</h3>
-                      <p><span class="main_color"><i class="ion-clock"></i>{{item.time}}</span>|<span class="sec_color">{{item.source}}</span></p>
+                      <p><span class="main_color"><i class="ion-clock"></i>{{item.time}}</span>|<span class="sec_color">{{item.sourceName}}</span></p>
                   </div>
             </ion-slide>
       </ion-slide-box>
@@ -22,10 +22,10 @@
 
 
            <div class="list_item animated slideInLeft"
-           style="background:url({{item.image}})no-repeat; background-size:cover" ng-click="goNext(item.link, item.source)">
+           style="background:url({{item.image}})no-repeat; background-size:cover" ng-click="goNext(item.link, item.sourceName)">
                 <div class="det_head">
                     <h3>{{item.title}}</h3>
-                    <p><span class="main_color">{{item.time}}</span>|<span class="sec_color">{{item.source}}</span></p>
+                    <p><span class="main_color">{{item.time}}</span>|<span class="sec_color">{{item.sourceName}}</span></p>
                 </div>
            </div>
         </a>

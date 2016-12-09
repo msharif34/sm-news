@@ -10,9 +10,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 */
 .run(function($ionicPlatform,$rootScope,$ionicPopup,$location) {
 
-$rootScope.home=[{id:"1",img:"img/002.png",title:"Why Nigeria was quick to trumpet the Chibok rescue",cat:"Political"}
-                 ,{id:"2",img:"img/003.png",title:"JoseMourinho :Man Utd to name  Mourinho as  manager",cat:"sport"},
-                 {id:"3",img:"img/004.png",title:"Help needy poor children",cat:"Political"},{id:"4",img:"img/005.jpg",title:"We Help Support African Children",cat:"Political"},{id:"5",img:"img/003.png",title:"JoseMourinho :Man Utd to name  Mourinho as  manager",cat:"sport"},{id:"6",img:"img/004.png",title:"Help needy poor children",cat:"Political"}]
 
 $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: true },{id:"2",icon:"ion-android-bicycle",title:"Sport"},
 {id:"3",icon:"ion-arrow-graph-up-right",title:"Business"},{id:"4",icon:"ion-ios-people",title:"Culture",checked: true },{id:"5",icon:"ion-ios-partlysunny",title:"Weather"}]
@@ -96,9 +93,8 @@ $rootScope.setting=[{id:"1",icon:"ion-document-text",title:"Political",checked: 
       adId:admobid.banner,
       position:AdMob.AD_POSITION.BOTTOM_CENTER,
       autoShow:true
-    })
-      console.log(JSON.stringify(window.AdMob))
-  };
+    });
+  }
 
 //=======AdMob Code End=======
   });

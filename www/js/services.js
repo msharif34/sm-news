@@ -43,9 +43,9 @@ angular.module('starter.services', [])
     $http({
          method: 'GET',
          // windows
-         url: ApiEndpoint.url + '/news/sports',
+        //  url: ApiEndpoint.url + '/news/sports',
          //Mac
-        //  url: 'http://localhost:3000' + '/news/sports',
+         url: 'http://localhost:3000' + '/news/sports',
          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
      }).success(function(data) {
       $ionicLoading.hide();
@@ -63,8 +63,38 @@ angular.module('starter.services', [])
     return q.promise;
   };
 
+  var getMoreData = function () {
+    var q = $q.defer();
+    var limit = 20;
+    $http({
+         method: 'POST',
+        //  url: ApiEndpoint.url + '/news/more',
+         url: 'http://localhost:3000' + '/news/more',
+         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+         data: {data: limit},
+         transformRequest: function(obj) {
+          var str = [];
+          for(var p in obj)
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          return str.join("&");
+      }
+     })
+    .success(function(data) {
+      console.log('Got some more data: ', JSON.stringify(data.length))
+      q.resolve(data);
+    })
+    .error(function(error){
+      console.log('Had an error: ' + JSON.stringify(error))
+      q.reject(error);
+    })
+
+    return q.promise;
+
+  };
+
   return {
     getApiData: getApiData,
-    getApiSports: getApiSports
+    getApiSports: getApiSports,
+    getMoreData: getMoreData
   };
 })

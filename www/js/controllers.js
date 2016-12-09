@@ -8,6 +8,9 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   // Form data for the login modal
+
+
+
   $ionicLoading.show({
     // template: "'<ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'"
     template: '<ion-spinner icon="lines" class="spinner-calm"></ion-spinner>',
@@ -39,8 +42,8 @@ angular.module('starter.controllers', [])
    }else if (state === 'app.list_sports') {
      Api.getApiSports()
      .then(function(result) {
-       $scope.featured = result.data.splice(0, 3);
-       $scope.data = result.data;
+       $scope.featured = result.splice(0, 3);
+       $scope.data = result;
      })
      .finally(function() {
       // Stop the ion-refresher from spinning
@@ -81,10 +84,29 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MainCtrl', function($scope, Api, $ionicLoading, $state, $ionicSlideBoxDelegate) {
+  var limit ;
   Api.getApiData()
   .then(function(result) {
     $scope.featured = result.splice(0, 3);
     $scope.data = result;
+
+    console.log(result.length);
+
+    $scope.noMoreItemsAvailable = false;
+
+    $scope.loadMore = function() {
+      Api.getMoreData()
+      .then(function(info){
+        console.log('got it!!!');
+        $scope.data = $scope.data.concat(info);
+
+        if ( $scope.data.length === 45 ) {
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+          $scope.noMoreItemsAvailable = true;
+          console.log('no more!!!!!!!')
+        }
+      })
+    };
   });
 })
 
@@ -92,7 +114,7 @@ angular.module('starter.controllers', [])
   // console.log("params: " + JSON.stringify($stateParams))
   Api.getApiSports()
   .then(function(result) {
-    $scope.featured = result.data.splice(0, 3);
-    $scope.data = result.data;
+    $scope.featured = result.splice(0, 3);
+    $scope.data = result;
   });
 });

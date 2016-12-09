@@ -8,7 +8,7 @@
           <ion-slide ng-repeat="item in featured track by $index" style="background:url({{item.image}})no-repeat" >
                   <div class="det_head">
                       <h3>{{item.title}}</h3>
-                      <p><span class="main_color"><i class="ion-clock"></i>{{item.time}}</span>|<span class="sec_color">{{item.source}}</span></p>
+                      <p><span class="main_color"><i class="ion-clock"></i>{{item.time}}</span>|<span class="sec_color">{{item.sourceName}}</span></p>
                   </div>
             </ion-slide>
       </ion-slide-box>
@@ -23,10 +23,11 @@
            style="background:url({{item.image}})no-repeat; background-size:cover" ng-click="openBrowser(item.link, item.source)">
                 <div class="det_head">
                     <h3>{{item.title}}</h3>
-                    <p><span class="main_color">{{item.time}}</span>|<span class="sec_color">{{item.source}}</span></p>
+                    <p><span class="main_color">{{item.time}}</span>|<span class="sec_color">{{item.sourceName}}</span></p>
                 </div>
            </div>
         </a>
       </div>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="5%"></ion-infinite-scroll>
   </ion-content>
 </ion-view>
