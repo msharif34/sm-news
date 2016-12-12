@@ -1,16 +1,6 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, Api, $state, $ionicLoading) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  // Form data for the login modal
-
-
-
   $ionicLoading.show({
     // template: "'<ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>'"
     template: '<ion-spinner icon="lines" class="spinner-calm"></ion-spinner>',
@@ -84,30 +74,32 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MainCtrl', function($scope, Api, $ionicLoading, $state, $ionicSlideBoxDelegate) {
-  var limit ;
+  var counter = 0;
+  var max;
+  $scope.noMoreItemsAvailable = false;
   Api.getApiData()
   .then(function(result) {
     $scope.featured = result.splice(0, 3);
     $scope.data = result;
-
-    console.log(result.length);
-
-    $scope.noMoreItemsAvailable = false;
+    var max = result.length;
 
     $scope.loadMore = function() {
-      Api.getMoreData()
+      counter+= 1;
+      Api.getMoreData(counter)
       .then(function(info){
-        console.log('got it!!!');
-        $scope.data = $scope.data.concat(info);
+        $scope.data = $scope.data.concat(info.info);
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        var limit = info.allData.length - 3;
 
-        if ( $scope.data.length === 45 ) {
-          $scope.$broadcast('scroll.infiniteScrollComplete');
+        if ( $scope.data.length >= limit ) {
           $scope.noMoreItemsAvailable = true;
-          console.log('no more!!!!!!!')
         }
       })
+
     };
   });
+
+
 })
 
 .controller('SportsCtrl', function($scope, $stateParams, $http, Api, $ionicSlideBoxDelegate) {

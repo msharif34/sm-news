@@ -1,11 +1,11 @@
 <ion-view view-title="<img src='img/head_logo.png' class='head_logo'/>LATEST NEWS">
   <ion-content class="main_page">
-    <ion-refresher
+    <!-- <ion-refresher
         pulling-text="Pull to refresh..."
         on-refresh="doRefresh('app.list')">
-    </ion-refresher>
+    </ion-refresher> -->
     <ion-slide-box class="img_slider" does-continue="true" auto-play="true">
-          <ion-slide ng-repeat="item in featured track by $index" style="background:url({{item.image}})no-repeat" >
+          <ion-slide ng-repeat="item in featured track by $index" style="background:url({{item.image}})no-repeat" ng-click="openBrowser(item.link, item.source)">
                   <div class="det_head">
                       <h3>{{item.title}}</h3>
                       <p><span class="main_color"><i class="ion-clock"></i>{{item.time}}</span>|<span class="sec_color">{{item.sourceName}}</span></p>

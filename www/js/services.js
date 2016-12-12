@@ -63,15 +63,14 @@ angular.module('starter.services', [])
     return q.promise;
   };
 
-  var getMoreData = function () {
+  var getMoreData = function (counter) {
     var q = $q.defer();
-    var limit = 20;
     $http({
          method: 'POST',
         //  url: ApiEndpoint.url + '/news/more',
          url: 'http://localhost:3000' + '/news/more',
          headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-         data: {data: limit},
+         data: {data: counter},
          transformRequest: function(obj) {
           var str = [];
           for(var p in obj)
@@ -81,12 +80,13 @@ angular.module('starter.services', [])
      })
     .success(function(data) {
       console.log('Got some more data: ', JSON.stringify(data.length))
+      var limit = data.length;
       q.resolve(data);
     })
     .error(function(error){
       console.log('Had an error: ' + JSON.stringify(error))
       q.reject(error);
-    })
+    });
 
     return q.promise;
 
